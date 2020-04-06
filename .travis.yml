@@ -1,0 +1,12 @@
+sudo: false
+matrix:
+  include:
+  - language: node_js
+    node_js:
+      - 12.13.0
+    install:
+      - npm install
+    script:
+      - npm run lint
+      - npm run stylelint
+      - npm run markdownlint
