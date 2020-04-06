@@ -25,7 +25,7 @@ class ChatView {
       '0018': 'fc',
       '001c': 'emote', // manual
       '001d': 'emote', // built-in
-      //'001e': '?' // is something, but not sure what
+      // '001e': '?' // is something, but not sure what
       '0025': 'cwls1',
       '0038': 'echo',
       '0039': 'message',
@@ -143,7 +143,7 @@ class ChatLog {
       this.view.addLog(m.groups.code, m.groups.line);
     }
   }
-};
+}
 
 UserConfig.getUserConfigLocation('chat', function(e) {
   let container = document.getElementById('container');
