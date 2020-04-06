@@ -1,5 +1,7 @@
 # cactbot-chat
 
+[![build status](https://travis-ci.org/quisquous/cactbot-chat.svg?branch=master)](https://travis-ci.org/quisquous/cactbot-chat)
+
 A very unofficial cactbot module to display party chat in a browser window.
 
 The idea is to either hide chat entirely (via textools?)
