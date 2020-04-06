@@ -1,0 +1,7 @@
+node_modules
+package-lock.json
+.idea/*
+.idea/
+*.iml
+*.swp
+.DS_Store
