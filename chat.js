@@ -132,7 +132,7 @@ class ChatView {
 class ChatLog {
   constructor(view) {
     this.view = view;
-    this.regex = Regexes.gameLog({ code: '00[0-9]{2}' });
+    this.regex = Regexes.gameLog({ code: '00[0-9].' });
   }
 
   onLogEvent(e) {
