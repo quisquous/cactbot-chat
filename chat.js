@@ -73,6 +73,20 @@ class ChatView {
       'cwls7': 'CWLS7',
       'cwls8': 'CWLS8',
     };
+
+    this.textReplace = {
+      // Party numbers
+      '\ue090': '1️⃣',
+      '\ue091': '2️⃣',
+      '\ue092': '3️⃣',
+      '\ue093': '4️⃣',
+      '\ue094': '5️⃣',
+      '\ue095': '6️⃣',
+      '\ue096': '7️⃣',
+      '\ue097': '8️⃣',
+      // the [>] arrow on items
+      '\ue0bb': '👜',
+    };
   }
 
   addLog(code, fullLine) {
@@ -113,13 +127,19 @@ class ChatView {
 
     let nameDiv = document.createElement('div');
     nameDiv.classList.add('name');
-    if (name)
+    if (name) {
+      for (let find in this.textReplace)
+        name = name.replace(find, this.textReplace[find]);
       nameDiv.innerText = '<' + name + '>';
+    }
     entryDiv.appendChild(nameDiv);
 
     let lineDiv = document.createElement('line');
-    if (line)
+    if (line) {
+      for (let find in this.textReplace)
+        line = line.replace(find, this.textReplace[find]);
       lineDiv.innerHTML = line;
+    }
     lineDiv.classList.add('line');
     entryDiv.appendChild(lineDiv);
 
