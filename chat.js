@@ -7,7 +7,6 @@ class ChatView {
   constructor(root) {
     this.root = root;
     this.codeToCSS = {
-    this.codeToCSS = {
       '0000': 'none',
       '0001': 'debug',
       '0002': 'urgent',
