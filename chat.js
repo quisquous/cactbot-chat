@@ -53,7 +53,6 @@ class ChatView {
       '006a': 'cwls7',
       '006b': 'cwls8',
     };
-    };
 
     this.classToPrefix = {
       'say': 'say',
