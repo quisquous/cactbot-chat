@@ -7,11 +7,14 @@ class ChatView {
   constructor(root) {
     this.root = root;
     this.codeToCSS = {
+      '0000': 'none',
+      '0001': 'debug',
+      '0002': 'urgent',
       '0003': 'announce',
       '000a': 'say',
       '000b': 'shout',
-      '000c': 'tell', // ?
-      '000d': 'tell', // ?
+      '000c': 'tell', // outgoing
+      '000d': 'tell', // incoming
       '000e': 'party',
       '000f': 'alliance',
       '0010': 'linkshell1',
@@ -23,9 +26,11 @@ class ChatView {
       '0016': 'linkshell7',
       '0017': 'linkshell8',
       '0018': 'fc',
+      '001b': 'novicenetwork',
       '001c': 'emote', // manual
       '001d': 'emote', // built-in
-      // '001e': '?' // is something, but not sure what
+      '001e': 'yell',
+      '0024': 'pvpteam',
       '0025': 'cwls1',
       '0038': 'echo',
       '0039': 'message',
@@ -42,7 +47,11 @@ class ChatView {
       '004c': 'orchestrion',
       '0065': 'cwls2',
       '0066': 'cwls3',
-      // other cwls??
+      '0067': 'cwls4',
+      '0068': 'cwls5',
+      '0069': 'cwls6',
+      '006a': 'cwls7',
+      '006b': 'cwls8',
     };
 
     this.classToPrefix = {
@@ -61,6 +70,8 @@ class ChatView {
       'linkshell8': '8',
       'fc': 'FC',
       'emote': 'say',
+      'yell': 'yell',
+      'pvpteam': 'PvP',
       'gil': '$$$',
       'sale': '$$$',
       'echo': 'echo',
