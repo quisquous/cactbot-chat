@@ -1,4 +1,8 @@
-'use strict';
+
+
+import Regexes from 'https://panicstevenson.github.io/cactbot/resources/regexes.js';
+import 'https://panicstevenson.github.io/cactbot/resources/common.js';
+import UserConfig from 'https://panicstevenson.github.io/cactbot/resources/user_config.js';
 
 let Options = {};
 
@@ -165,7 +169,7 @@ class ChatLog {
   }
 }
 
-UserConfig.getUserConfigLocation('chat', function(e) {
+UserConfig.getUserConfigLocation('chat', Options, function(e) {
   let container = document.getElementById('container');
   let chatView = new ChatView(container);
   let chatLog = new ChatLog(chatView);

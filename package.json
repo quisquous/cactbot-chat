@@ -9,7 +9,8 @@
     "lint": "node_modules/.bin/eslint **/*.js",
     "lintfix": "node_modules/.bin/eslint **/*.js --fix",
     "stylelint": "node_modules/.bin/stylelint *.css",
-    "markdownlint": "node_modules/.bin/markdownlint **/*.md --ignore node_modules"
+    "markdownlint": "node_modules/.bin/markdownlint **/*.md --ignore node_modules",
+    "start": "node_modules/.bin/http-server -p 18123 -o chat.html?OVERLAY_WS=wss://127.0.0.1:10501/ws"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -126,13 +127,15 @@
       ]
     },
     "parserOptions": {
-      "ecmaVersion": 2018
+      "ecmaVersion": 2018,
+      "sourceType": "module"
     }
   },
   "stylelint": {
     "extends": "stylelint-config-standard"
   },
   "dependencies": {
+    "http-server": "^0.12.3",
     "markdownlint": "^0.18.0"
   }
 }
