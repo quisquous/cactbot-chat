@@ -1,8 +1,8 @@
 
 
-import Regexes from 'https://panicstevenson.github.io/cactbot/resources/regexes.js';
-import 'https://panicstevenson.github.io/cactbot/resources/common.js';
-import UserConfig from 'https://panicstevenson.github.io/cactbot/resources/user_config.js';
+import Regexes from 'https://quisquous.github.io/cactbot/resources/regexes.js';
+import 'https://quisquous.github.io/cactbot/resources/common.js';
+import UserConfig from 'https://quisquous.github.io/cactbot/resources/user_config.js';
 
 let Options = {};
 
