@@ -1,4 +1,6 @@
-'use strict';
+import Regexes from './regexes.js';
+import './overlay_plugin_api.js';
+import UserConfig from './user_config.js';
 
 let Options = {};
 
@@ -87,6 +89,12 @@ class ChatView {
 
     this.textReplace = {
       // Party numbers
+      '\ue071': '(A) ',
+      '\ue072': '(B) ',
+      '\ue073': '(C) ',
+      '\ue074': '(D) ',
+      '\ue075': '(E) ',
+      '\ue076': '(F) ',
       '\ue090': '1️⃣',
       '\ue091': '2️⃣',
       '\ue092': '3️⃣',
@@ -176,7 +184,7 @@ class ChatLog {
   }
 }
 
-UserConfig.getUserConfigLocation('chat', function(e) {
+UserConfig.getUserConfigLocation('chat', Options, function(e) {
   let container = document.getElementById('container');
   let chatView = new ChatView(container);
   let chatLog = new ChatLog(chatView);
