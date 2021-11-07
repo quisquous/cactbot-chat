@@ -1,4 +1,4 @@
-import Regexes from './regexes.js';
+import NetRegexes from './netregexes.js';
 import './overlay_plugin_api.js';
 import UserConfig from './user_config.js';
 
@@ -108,26 +108,7 @@ class ChatView {
     };
   }
 
-  addLog(code, fullLine) {
-    // TODO: maybe gameLog should do this?
-    let lineSplit = fullLine.split(':', 2);
-    let name = lineSplit[0];
-    let line = lineSplit[1];
-
-    // Even though network log lines always have space for a name,
-    // the ACT plugin processes them weirdly. Any empty name is
-    // dropped, so echo lines are:
-    //   network log: "00|datestring|0038||the echo"
-    //   act log: "00:0038:the echo"
-    // Amusingly, if you "/echo Foo|Bar" this turns into "00:0038:Foo:Bar".
-    // Unsurprisingly, "/echo Foo:Bar" also turns into the same as above.
-    // The real answer here is to use network log lines for everything.
-    // Some day~~~
-    if (!line) {
-      line = name;
-      name = null;
-    }
-
+  addLog(code, name, line) {
     let entryDiv = document.createElement('div');
     entryDiv.classList.add('entry', 'code-' + code);
     let lookupClass = this.codeToCSS[code];
@@ -171,16 +152,15 @@ class ChatView {
 class ChatLog {
   constructor(view) {
     this.view = view;
-    this.regex = Regexes.gameLog({ code: '00[0-9].' });
+    this.regex = NetRegexes.gameLog({ code: '00[0-9].' });
   }
 
-  onLogEvent(e) {
-    for (let log of e.detail.logs) {
-      let m = log.match(this.regex);
-      if (!m)
-        continue;
-      this.view.addLog(m.groups.code, m.groups.line);
-    }
+  onNetLog(e) {
+    const log = e.rawLine;
+    let m = log.match(this.regex);
+    if (!m)
+      return;
+    this.view.addLog(m.groups.code, m.groups.name, m.groups.line);
   }
 }
 
@@ -189,7 +169,7 @@ UserConfig.getUserConfigLocation('chat', Options, function(e) {
   let chatView = new ChatView(container);
   let chatLog = new ChatLog(chatView);
 
-  addOverlayListener('onLogEvent', function(e) {
-    chatLog.onLogEvent(e);
+  addOverlayListener('LogLine', function(e) {
+    chatLog.onNetLog(e);
   });
 });
