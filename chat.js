@@ -1,8 +1,6 @@
-
-
-import Regexes from 'https://quisquous.github.io/cactbot/resources/regexes.js';
-import 'https://quisquous.github.io/cactbot/resources/common.js';
-import UserConfig from 'https://quisquous.github.io/cactbot/resources/user_config.js';
+import Regexes from './regexes.js';
+import './overlay_plugin_api.js';
+import UserConfig from './user_config.js';
 
 let Options = {};
 
@@ -80,6 +78,12 @@ class ChatView {
 
     this.textReplace = {
       // Party numbers
+      '\ue071': '(A) ',
+      '\ue072': '(B) ',
+      '\ue073': '(C) ',
+      '\ue074': '(D) ',
+      '\ue075': '(E) ',
+      '\ue076': '(F) ',
       '\ue090': '1️⃣',
       '\ue091': '2️⃣',
       '\ue092': '3️⃣',
