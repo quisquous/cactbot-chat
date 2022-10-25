@@ -1,6 +1,6 @@
-import NetRegexes from './netregexes.js';
-import './overlay_plugin_api.js';
-import UserConfig from './user_config.js';
+import NetRegexes from './node_modules/cactbot/resources/netregexes.js';
+import './node_modules/cactbot/resources/overlay_plugin_api.js';
+import UserConfig from './node_modules/cactbot/resources/user_config.js';
 
 let Options = {};
 
