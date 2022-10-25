@@ -6,11 +6,11 @@
     "url": "https://github.com/quisquous/cactbot-chat"
   },
   "scripts": {
-    "lint": "node_modules/.bin/eslint **/*.js",
-    "lintfix": "node_modules/.bin/eslint **/*.js --fix",
-    "stylelint": "node_modules/.bin/stylelint *.css",
-    "markdownlint": "node_modules/.bin/markdownlint **/*.md --ignore node_modules",
-    "start": "node_modules/.bin/http-server -p 18123 -o chat.html?OVERLAY_WS=wss://127.0.0.1:10501/ws"
+    "lint": "eslint **/*.js",
+    "lintfix": "eslint **/*.js --fix",
+    "stylelint": "stylelint *.css",
+    "markdownlint": "markdownlint **/*.md --ignore node_modules",
+    "start": "http-server -p 18123 -o chat.html?OVERLAY_WS=wss://127.0.0.1:10501/ws"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
