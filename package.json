@@ -10,7 +10,7 @@
     "lintfix": "eslint **/*.js --fix",
     "stylelint": "stylelint *.css",
     "markdownlint": "markdownlint **/*.md --ignore node_modules",
-    "start": "http-server -p 18123 -o chat.html?OVERLAY_WS=wss://127.0.0.1:10501/ws"
+    "start": "http-server -p 18123 -o chat.html?OVERLAY_WS=ws://127.0.0.1:10501/ws"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
